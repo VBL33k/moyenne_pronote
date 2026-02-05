@@ -1,0 +1,106 @@
+/* styles.css - Styles pour l'extension Pronote */
+
+/* Styles pour l'indicateur de moyenne */
+#pronote-average-indicator {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Styles pour améliorer l'apparence des notes sur Pronote */
+.note, .grade, [class*="note"] {
+    position: relative;
+}
+
+/* Ajouter un effet de survol sur les éléments de notes */
+.note:hover, .grade:hover, [class*="note"]:hover {
+    background-color: rgba(102, 126, 234, 0.1) !important;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Styles pour les matières */
+.matiere, .subject, [class*="matiere"], [class*="subject"] {
+    font-weight: bold;
+}
+
+/* Animation pour les éléments analysés */
+.pronote-analyzed {
+    animation: highlight 2s ease-in-out;
+}
+
+@keyframes highlight {
+    0% { background-color: rgba(102, 126, 234, 0.3); }
+    50% { background-color: rgba(102, 126, 234, 0.6); }
+    100% { background-color: rgba(102, 126, 234, 0.1); }
+}
+
+/* Styles pour les tableaux Pronote */
+table {
+    border-collapse: collapse;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Améliorer la lisibilité des notes dans les tableaux */
+table td[class*="note"] {
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Styles pour les bulletins */
+.bulletin, .bulletin-note {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+/* Responsive design pour l'indicateur */
+@media (max-width: 768px) {
+    #pronote-average-indicator {
+        top: 10px;
+        right: 10px;
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+}
+
+/* Styles pour les notifications */
+.pronote-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    z-index: 10001;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
